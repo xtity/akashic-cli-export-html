@@ -8,10 +8,13 @@ export interface ExportHTMLParameterObject extends TransferTemplateParameterObje
 };
 
 export function _completeExportHTMLParameterObject(param: ExportHTMLParameterObject): void {
+	param.cwd = param.cwd || process.cwd();
 	param.logger = param.logger || new cmn.ConsoleLogger();
 }
 export function promiseExportHTML(param: ExportHTMLParameterObject): Promise<void> {
 	_completeExportHTMLParameterObject(param);
+	cmn.Util.chdir(param.cwd);
+
 	if (!param.output) { // TODO 必須なのか？
 		return Promise.reject("--output option must be specified.");
 	}

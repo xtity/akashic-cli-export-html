@@ -5,7 +5,7 @@ import { ConsoleLogger } from "@akashic/akashic-cli-commons";
 import { promiseExportHTML } from "./exportHTML";
 
 interface CommandParameterObject {
-	dir?: string;
+	cwd?: string;
 	force?: boolean;
 	quiet?: boolean;
 	output?: string;
@@ -19,7 +19,7 @@ interface CommandParameterObject {
 function cli(param: CommandParameterObject): void {
 	var logger = new ConsoleLogger({ quiet: param.quiet });
 	var exportParam = {
-		dir: param.dir
+		cwd: param.cwd
 		, force: param.force
 		, quiet: param.quiet
 		, output: param.output
