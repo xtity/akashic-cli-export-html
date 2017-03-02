@@ -12,7 +12,7 @@ export function _completeExportHTMLParameterObject(param: ExportHTMLParameterObj
 }
 export function promiseExportHTML(param: ExportHTMLParameterObject): Promise<void> {
 	_completeExportHTMLParameterObject(param);
-	if (!param.output) {
+	if (!param.output) { // TODO 必須なのか？
 		return Promise.reject("--output option must be specified.");
 	}
 

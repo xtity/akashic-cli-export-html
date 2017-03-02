@@ -11,6 +11,7 @@ interface InnerHTMLAssetData {
 }
 
 export interface TransferTemplateParameterObject {
+	dir?: string;
 	quiet?: boolean;
 	exclude?: string[];
 	output?: string;
